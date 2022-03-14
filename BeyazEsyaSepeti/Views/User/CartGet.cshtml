@@ -1,0 +1,20 @@
+﻿@model BeyazEsyaSepeti.Models.UserProductContainer
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="bg">Sepetim</h3>
+<div class="panel-body">
+    @if (Model.user.Cart.Count == 0)
+    {
+        <span>Sepetinizde ürün yok ürünler için lütfen tıklayınız <a asp-controller="Home" asp-action="Index" class="btn btn-block btn-info">Ürünler</a></span>
+    }
+    @foreach (var item in Model.user.Cart)
+    {
+        <div class="row">
+            <div class=" col-sm-4"></div><div class=" col-sm-4">@item.Name</div><div class=" col-sm-2">@item.Price TL</div><div class=" col-sm-2">@item.Quantity Adet</div>
+        </div>
+    }
+</div>
+
